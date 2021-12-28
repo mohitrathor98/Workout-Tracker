@@ -28,6 +28,10 @@ exercise_response = response.json()
 
 # sheety api to record data in spreadsheet
 today = datetime.now()
+headers = {
+    "Authorization": "Bearer asdfbearer1234myheartisstereoitbeatsforyousolistenclose988"
+}
+
 body = {
     "workout": {
         "date": today.strftime("%d/%m/%Y"),
@@ -38,7 +42,7 @@ body = {
     }
 }
 
-response = requests.post(url=SHEETY_POST_URL, json=body)
+response = requests.post(url=SHEETY_POST_URL, json=body, headers=headers)
 response.raise_for_status()
 
 print(response.status_code)
